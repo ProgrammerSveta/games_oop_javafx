@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -20,11 +21,9 @@ class BishopBlackTest {
     @Test
     public void whenPathIsNotOK() {
         BishopBlack bishop = new BishopBlack(Cell.C1);
-        ImpossibleMoveException  exception = assertThrows(
+        ImpossibleMoveException exception = assertThrows(
                 ImpossibleMoveException.class,
-                () -> {
-                    bishop.way(Cell.C2);
-                });
+                () -> bishop.way(Cell.C2));
         assertThat(exception.getMessage()).isEqualTo("Can't move from C1 to C2");
     }
 
